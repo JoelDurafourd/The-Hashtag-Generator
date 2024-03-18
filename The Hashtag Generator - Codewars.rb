@@ -11,19 +11,23 @@ If the input or the result is an empty string it must return false.
 =end
 
 def generateHashtag(str)
-    if str == nil || str.length >= 140
+    new_str = str.split(" ").map(&:capitalize).join.gsub(/\s+/, "")
+    if new_str == nil || new_str.length >= 140
         return false
     else 
-        return "#" + str.split(" ").map(&:capitalize).join
+        return "#" + new_str
     end 
 
   end 
 
-puts generateHashtag("")
-puts generateHashtag(" " * 200)
+p generateHashtag("")
+p generateHashtag(" " * 200)
 puts generateHashtag("Do We have A Hashtag")
 puts generateHashtag("Codewars")
 puts generateHashtag("Codewars Is Nice")
 puts generateHashtag("Codewars is nice")
+puts generateHashtag("code" + " " * 140 + "wars")
+puts generateHashtag("Looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong Cat")
 puts generateHashtag("a" * 139)
 puts generateHashtag("a" * 140)
+p generateHashtag("code" + " " * 140 + "wars")
