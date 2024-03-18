@@ -11,13 +11,13 @@ If the input or the result is an empty string it must return false.
 =end
 
 def generateHashtag(str)
-    new_str = str.split(" ").map(&:capitalize).join.gsub(/\s+/, "")
-    if new_str == nil || new_str.length >= 140
+    new_str = str.split(" ").map(&:capitalize).join
+    if new_str == nil || new_str.length >= 140 || new_str.length <= 0
         return false
     else 
         return "#" + new_str
     end 
-
+  
   end 
 
 p generateHashtag("")
